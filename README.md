@@ -36,36 +36,52 @@ One container. No database server, no separate machine-learning container.
 
 Numa Home is a Docker image for x86-64: `ghcr.io/simmmmm/numa-home`.
 
-**UGREEN (UGOS Pro)**
+1. Put [`compose.yaml`](compose.yaml) in a folder and change the left side
+   of each volume to where things live on your machine: `/photos` is the
+   folder that holds your photographs, `/sent` and `/data` are folders of
+   its own.
+2. Start it:
 
-1. Make two folders, for example `docker/numa-home/sent` and
-   `docker/numa-home/data`.
-2. Docker › Project › Create. Paste [`compose.yaml`](compose.yaml).
-3. Change the left side of each volume to your folders. `/photos` is the
-   folder that holds your photographs.
-4. Deploy, then open `http://<your-nas>:8283` and make the first account. It
-   can make one for everyone else.
+   ```sh
+   docker compose up -d
+   ```
 
-**Synology, QNAP, Unraid or a plain Linux server**
+   On a NAS with a Docker app (UGREEN, Synology, QNAP, Unraid, Portainer),
+   create a project or stack and paste the same file.
+3. Open `http://<host>:8283` and make the first account. It can make one
+   for everyone else.
 
-```sh
-docker compose up -d
+On the first start the face and search models are downloaded (about
+520 MB) into `/data`. The photographs are then read in the background, on
+at most half the processor. The Activity page shows how far it has got and
+can pause it.
+
+**Updating:** pull the image again and restart. Accounts, names and
+everything already read stay in `/data`.
+
+### SD cards and USB drives
+
+To import cards from the browser, add the folder where the host mounts
+removable drives as `/cards`, read only, with `rslave` propagation so a
+card put in later shows up:
+
+```yaml
+      - type: bind
+        source: /media
+        target: /cards
+        read_only: true
+        bind:
+          propagation: rslave
 ```
 
-with the same [`compose.yaml`](compose.yaml) and your own paths.
+### The Intel iGPU
 
-On the first start the face and search models are downloaded (about 520 MB)
-into `/data/models`. Your archive is then read in the background, on at
-most half the processor, so the NAS stays quick for everything else. The
-Activity page shows how far it has got and can pause it.
-
-**Updating:** pull `ghcr.io/simmmmm/numa-home:latest` and restart. Accounts,
-names and everything already read stay in `/data`.
+Optional, for faster decoding: `devices: ["/dev/dri:/dev/dri"]`.
 
 ## Good to know
 
-- **Port 8283** on your home network. To reach it from outside, use your
-  NAS's reverse proxy or a VPN such as Tailscale. Numa Home does not expose
+- **Port 8283** on your own network. To reach it from outside, use a
+  reverse proxy or a VPN such as Tailscale. Numa Home does not expose
   itself.
 - **One writer.** Numa Home keeps a small catalog inside each library's
   `.numa` folder. Don't open those same folders over the network in the Numa

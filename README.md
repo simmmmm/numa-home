@@ -48,7 +48,10 @@ Numa Home is a Docker image for x86-64: `ghcr.io/simmmmm/numa-home`.
 
    On a NAS with a Docker app (UGREEN, Synology, QNAP, Unraid, Portainer),
    create a project or stack and paste the same file.
-3. Open `http://<host>:8283` and make the first account. It can make one
+3. Set `TZ` to your time zone (for example `Europe/Berlin`): the night
+   shift, when Numa Home catches up and checks everything, runs from 01:00
+   to 06:00 in it.
+4. Open `http://<host>:8283` and make the first account. It can make one
    for everyone else.
 
 On the first start the face and search models are downloaded (about

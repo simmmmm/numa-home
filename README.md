@@ -8,6 +8,11 @@ the Numa app finds them, on your NAS. Nothing goes to the cloud.
 
 One container. No database server, no separate machine-learning container.
 
+![Numa Home in a browser: the photographs by month, a bar for a card in the NAS, the filters by who took them, and the scrubber with the years on the right](docs/timeline.webp)
+
+More on [numa.photo/numa-home](https://numa.photo/numa-home), and every page
+explained in [the guide](https://guide.numa.photo/numa-home).
+
 ## What it does
 
 - **A timeline of everything.** Every month in one scroll, with a scrubber
@@ -31,6 +36,17 @@ One container. No database server, no separate machine-learning container.
   new folder you name.
 - **Your archive as it is.** Point it at the folders you already have. A
   library made by the Numa app keeps its stars, edits and names.
+
+<table>
+<tr>
+<td width="50%"><img src="docs/search.webp" alt="A search for flowers, finding fourteen photographs of tulips, sunflowers, daisies and other flowers"></td>
+<td width="50%"><img src="docs/photo.webp" alt="One photograph large with Open in Numa, the info button and Download; beside it the name, date, stars, Pick and Reject, the camera, the size, By and the library"></td>
+</tr>
+<tr>
+<td width="50%"><img src="docs/tidy.webp" alt="Tidy Up: counts for Exact Copies, Unusable and Who Took These, and a set of two copies with Numa's Pick marked, Keep Best and Keep All"></td>
+<td width="50%" align="center"><img src="docs/phone.webp" width="220" alt="Numa Home on a phone: the photographs by month"></td>
+</tr>
+</table>
 
 ## Install
 

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>numa-home</Name>
+  <Repository>ghcr.io/simmmmm/numa-home:latest</Repository>
+  <Registry>https://ghcr.io/simmmmm/numa-home</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Icon>https://raw.githubusercontent.com/simmmmm/Numa/main/data/branding/icon-dark@2x.png</Icon>
+  <WebUI>http://[IP]:[PORT:8283]</WebUI>
+  <Overview>Numa Home shows every photograph in the house in a browser, on a phone or on the TV. Raws such as RAF, ARW, CR3, NEF and DNG are rendered with Numa's colour and your edits. Faces are found and grouped, and search understands words such as "beach at sunset". An account for each person, albums, stars and picks shared by the household, Send Home from the Numa apps for Linux, Mac and iPhone, and import from an SD card in the server. One container with SQLite; nothing goes to the cloud.&#xD;
+&#xD;
+Open the WebUI and make the first account: it is the admin. On the first start the face and search models (about 520 MB) are downloaded into /data, and then the photographs are read in the background. Numa Home writes a small catalog into a .numa folder inside each library, so the photographs share must be writable.</Overview>
+  <Support>https://github.com/simmmmm/numa-home/issues</Support>
+  <Project>https://numa.photo/numa-home</Project>
+  <TemplateURL>https://raw.githubusercontent.com/simmmmm/numa-home/main/templates/numa-home.xml</TemplateURL>
+  <ReadMe>https://github.com/simmmmm/numa-home#readme</ReadMe>
+  <Category>MediaApp:Photos</Category>
+  <ExtraSearchTerms>photos raw gallery faces family</ExtraSearchTerms>
+  <Requires>An x86-64 (amd64) server. Internet access on the first start, to download the face and search models.</Requires>
+  <Changes>### 0.45.1&#xD;
+https://github.com/simmmmm/Numa/releases</Changes>
+  <Date>2026-10-23</Date>
+  <License>GPL-3.0-or-later</License>
+  <Screenshot>https://raw.githubusercontent.com/simmmmm/numa-home/main/docs/timeline.webp</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/simmmmm/numa-home/main/docs/search.webp</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/simmmmm/numa-home/main/docs/photo.webp</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/simmmmm/numa-home/main/docs/tidy.webp</Screenshot>
+  <Config Name="WebUI" Target="8283" Default="8283" Mode="tcp" Description="The web page and the apps' connection." Type="Port" Display="always" Required="true" Mask="false">8283</Config>
+  <Config Name="Photographs" Target="/photos" Default="/mnt/user/photos" Mode="rw" Description="Your photographs. Every library in it is shown; Numa Home keeps a small catalog in each library's .numa folder." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/photos</Config>
+  <Config Name="Sent Home" Target="/sent" Default="/mnt/user/appdata/numa-home/sent" Mode="rw" Description="What each account sends home from the Numa apps." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/numa-home/sent</Config>
+  <Config Name="Data" Target="/data" Default="/mnt/user/appdata/numa-home/data" Mode="rw" Description="Accounts, thumbnails, models and the nightly database copies." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/numa-home/data</Config>
+  <Config Name="Cards" Target="/cards" Default="" Mode="ro,slave" Description="Optional: where SD cards and USB drives are mounted, for example /mnt/disks, to import from the browser." Type="Path" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Second copy" Target="/copy" Default="" Mode="rw,slave" Description="Optional: a second disk; every night the photographs and the database copies are mirrored to it." Type="Path" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Reverse proxies" Target="NUMA_HOME_PROXY" Default="" Description="Optional: the addresses or networks of reverse proxies whose X-Forwarded-For is believed, comma separated, for example 172.16.0.0/12." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Intel or AMD GPU" Target="/dev/dri" Default="" Description="Optional: /dev/dri for faster decoding. Everything works without it." Type="Device" Display="advanced" Required="false" Mask="false"></Config>
+</Container>

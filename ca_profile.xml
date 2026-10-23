@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<CommunityApplications>
+  <Profile>Numa Home: your household's photographs on your own server. A timeline of every photograph in the house, raws rendered with Numa's colour and edits, faces and search in words found on the server, and an account for each person. One container with SQLite. Questions and problems: https://github.com/simmmmm/numa-home/issues</Profile>
+  <Icon>https://raw.githubusercontent.com/simmmmm/Numa/main/data/branding/icon-dark@2x.png</Icon>
+  <WebPage>https://numa.photo/numa-home</WebPage>
+</CommunityApplications>

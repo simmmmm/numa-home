@@ -18,7 +18,7 @@ Open the WebUI and make the first account: it is the admin. On the first start t
   <Category>MediaApp:Photos</Category>
   <ExtraSearchTerms>photos raw gallery faces family</ExtraSearchTerms>
   <Requires>An x86-64 (amd64) server. Internet access on the first start, to download the face and search models.</Requires>
-  <Changes>### 0.45.1&#xD;
+  <Changes>### 0.46.0&#xD;
 https://github.com/simmmmm/Numa/releases</Changes>
   <Date>2026-10-23</Date>
   <License>GPL-3.0-or-later</License>

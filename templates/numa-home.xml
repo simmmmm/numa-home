@@ -18,9 +18,9 @@ Open the WebUI and make the first account: it is the admin. On the first start t
   <Category>MediaApp:Photos</Category>
   <ExtraSearchTerms>photos raw gallery faces family</ExtraSearchTerms>
   <Requires>An x86-64 (amd64) server. Internet access on the first start, to download the face and search models.</Requires>
-  <Changes>### 0.47.0&#xD;
+  <Changes>### 0.48.0-home.1&#xD;
 https://github.com/simmmmm/Numa/releases</Changes>
-  <Date>2026-10-24</Date>
+  <Date>2026-10-31</Date>
   <License>GPL-3.0-or-later</License>
   <Screenshot>https://raw.githubusercontent.com/simmmmm/numa-home/main/docs/timeline.webp</Screenshot>
   <Screenshot>https://raw.githubusercontent.com/simmmmm/numa-home/main/docs/search.webp</Screenshot>
@@ -32,6 +32,6 @@ https://github.com/simmmmm/Numa/releases</Changes>
   <Config Name="Data" Target="/data" Default="/mnt/user/appdata/numa-home/data" Mode="rw" Description="Accounts, thumbnails, models and the nightly database copies." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/numa-home/data</Config>
   <Config Name="Cards" Target="/cards" Default="" Mode="ro,slave" Description="Optional: where SD cards and USB drives are mounted, for example /mnt/disks, to import from the browser." Type="Path" Display="advanced" Required="false" Mask="false"></Config>
   <Config Name="Second copy" Target="/copy" Default="" Mode="rw,slave" Description="Optional: a second disk; every night the photographs and the database copies are mirrored to it." Type="Path" Display="advanced" Required="false" Mask="false"></Config>
-  <Config Name="Reverse proxies" Target="NUMA_HOME_PROXY" Default="" Description="Optional: the addresses or networks of reverse proxies whose X-Forwarded-For is believed, comma separated, for example 172.16.0.0/12." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Reverse proxies" Target="NUMA_HOME_PROXY" Default="" Description="Only behind a reverse proxy: its address or network as Numa Home sees it, comma separated, for example 172.18.0.1. Without it the session cookie has no Secure, there is no HSTS and the sign-in limit counts every visitor as the proxy." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
   <Config Name="Intel or AMD GPU" Target="/dev/dri" Default="" Description="Optional: /dev/dri for faster decoding. Everything works without it." Type="Device" Display="advanced" Required="false" Mask="false"></Config>
 </Container>
